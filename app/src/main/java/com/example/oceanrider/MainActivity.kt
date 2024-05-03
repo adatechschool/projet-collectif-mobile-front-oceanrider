@@ -9,23 +9,33 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.recyclerview.widget.RecyclerView
+import com.example.oceanrider.adapter.ItemAdapter
+import com.example.oceanrider.data.Datasource
 import com.example.oceanrider.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var appBarConfiguration: AppBarConfiguration // gère config de la toolbar
+    private lateinit var binding: ActivityMainBinding // permet de lier grâce a Activity Main Binding
 
+    // appelé quand activité créée
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // crée une instance de la classe ActivityMainBinding en utilisant le layoutInflater.
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(binding.root) // définit le layout de l'activité en utilisant la racine de la vue liée
 
-        setSupportActionBar(binding.toolbar)
+        val myDataset = Datasource().loadSpots()
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView.adapter = ItemAdapter(this, myDataset)
+        recyclerView.setHasFixedSize(true)
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
+        setSupportActionBar(binding.toolbar) // configure la toolbar en fonction de la vue liée
+
+        val navController = findNavController(R.id.nav_host_fragment_content_main) // obtient controleur de nav pour l'activité a partir du fragment
+        appBarConfiguration = AppBarConfiguration(navController.graph) //configure la toolbar via le graph de navigation
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         // pour avoir une snackbar au click de l'icone mail
@@ -37,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // ouvre le menu
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
@@ -52,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //gère le comportement de la navigation vers le haut
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)

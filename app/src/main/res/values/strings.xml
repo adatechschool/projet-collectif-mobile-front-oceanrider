@@ -2,8 +2,8 @@
     <string name="app_name">OceanRider</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">Spot page</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="spot_page">Spot page</string>
+    <string name="list_spots_page">List of spots</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
@@ -11,4 +11,6 @@
     <string name="place">Lieu de la plage</string>
     <string name="save">Save</string>
     <string name="alt">Image de plage</string>
+    <string name="spot1">banane</string>
+    <string name="spot2">pomme</string>
 </resources>
