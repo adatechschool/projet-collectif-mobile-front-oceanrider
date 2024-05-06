@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.oceanrider.adapter.ItemAdapter
 import com.example.oceanrider.data.Datasource
 import com.example.oceanrider.databinding.ActivityMainBinding
+import com.example.oceanrider.utils.JsonUtils
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,15 +28,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root) // définit le layout de l'activité en utilisant la racine de la vue liée
 
-        val myDataset = Datasource().loadSpots()
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.adapter = ItemAdapter(this, myDataset)
-        recyclerView.setHasFixedSize(true)
+//        val myDataset = Datasource().loadSpots()
+
+
+
 
         setSupportActionBar(binding.toolbar) // configure la toolbar en fonction de la vue liée
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main) // obtient controleur de nav pour l'activité a partir du fragment
-        appBarConfiguration = AppBarConfiguration(navController.graph) //configure la toolbar via le graph de navigation
+        val navController =
+            findNavController(R.id.nav_host_fragment_content_main) // obtient controleur de nav pour l'activité a partir du fragment
+        appBarConfiguration =
+            AppBarConfiguration(navController.graph) //configure la toolbar via le graph de navigation
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         // pour avoir une snackbar au click de l'icone mail
@@ -44,6 +47,16 @@ class MainActivity : AppCompatActivity() {
 //                    .setAction("Action", null)
 //                    .setAnchorView(R.id.fab).show()
 //        }
+
+        val spotsList = JsonUtils().parseJSONFromAssets(this, "sample.json");
+        if (spotsList != null) {
+            for (spot in spotsList) {
+                println("Surf Break: ${spot.surfBreak}, Address: ${spot.address}")
+            }
+            val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+            recyclerView.adapter = ItemAdapter(this, spotsList)
+            recyclerView.setHasFixedSize(true)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -68,4 +81,6 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
+
+
 }

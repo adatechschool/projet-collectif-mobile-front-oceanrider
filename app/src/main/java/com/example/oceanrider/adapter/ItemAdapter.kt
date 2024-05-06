@@ -14,7 +14,8 @@ class ItemAdapter(
     private val dataset: List<Spot>
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.item_title)
+        val surfBreak: TextView = view.findViewById(R.id.textView_surfBreak)
+        val address: TextView = view.findViewById(R.id.textView_address)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -28,6 +29,7 @@ class ItemAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
-        holder.textView.text = context.resources.getString(item.stringResourceId)
+        holder.surfBreak.text = item.surfBreak
+        holder.address.text = item.address
     }
 }
