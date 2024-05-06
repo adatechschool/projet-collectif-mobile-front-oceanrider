@@ -5,7 +5,7 @@ import com.example.oceanrider.model.Spot
 import org.json.JSONObject
 import java.io.IOException
 
-public class JsonUtils {
+class JsonUtils {
     fun parseJSONFromAssets(context: Context, fileName: String): List<Spot>? {
         val spotsList = mutableListOf<Spot>()
         val json: String?
@@ -25,7 +25,8 @@ public class JsonUtils {
                 val spotObject = recordsArray.getJSONObject(i)
                 val surfBreak = spotObject.getString("Surf Break")
                 val address = spotObject.getString("Address")
-                spotsList.add(Spot(surfBreak, address))
+                val photos = spotObject.getString("photos")
+                spotsList.add(Spot(surfBreak, address, photos))
             }
 
             spotsList // Retourner la liste des spots
