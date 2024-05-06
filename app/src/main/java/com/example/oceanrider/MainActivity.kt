@@ -28,11 +28,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root) // définit le layout de l'activité en utilisant la racine de la vue liée
 
-//        val myDataset = Datasource().loadSpots()
-
-
-
-
         setSupportActionBar(binding.toolbar) // configure la toolbar en fonction de la vue liée
 
         val navController =
@@ -50,9 +45,6 @@ class MainActivity : AppCompatActivity() {
 
         val spotsList = JsonUtils().parseJSONFromAssets(this, "sample.json");
         if (spotsList != null) {
-            for (spot in spotsList) {
-                println("Surf Break: ${spot.surfBreak}, Address: ${spot.address}")
-            }
             val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
             recyclerView.adapter = ItemAdapter(this, spotsList)
             recyclerView.setHasFixedSize(true)

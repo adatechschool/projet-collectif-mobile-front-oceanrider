@@ -26,8 +26,7 @@
         android:id="@+id/imageView_photos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/alt" />
+        android:contentDescription="@string/alt"
+        />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

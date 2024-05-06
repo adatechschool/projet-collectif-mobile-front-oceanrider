@@ -35,6 +35,6 @@ class ItemAdapter(
         val item = dataset[position]
         holder.surfBreak.text = item.surfBreak
         holder.address.text = item.address
-        holder.photoUrl.load(item.photos)
+        holder.photoUrl.load("https://random.imagecdn.app/500/150")
     }
 }
