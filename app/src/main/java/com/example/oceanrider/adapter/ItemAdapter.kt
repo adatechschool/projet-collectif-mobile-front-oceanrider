@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.oceanrider.R
+import com.example.oceanrider.model.Fields
 import com.example.oceanrider.model.Spot
 
 class ItemAdapter(
@@ -33,8 +34,8 @@ class ItemAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
-        holder.surfBreak.text = item.surfBreak
-        holder.address.text = item.address
-        holder.photoUrl.load("https://random.imagecdn.app/500/150")
+//        holder.surfBreak.text = item.fields.surfBreak
+//        holder.address.text = item.address
+//        holder.photoUrl.load(item.photos)
     }
 }
