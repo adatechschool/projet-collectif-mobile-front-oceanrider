@@ -1,5 +1,7 @@
 package com.example.oceanrider.model
 
+import com.google.gson.annotations.SerializedName
+
 
 class SurfResponse {
     data class Photo(
@@ -26,17 +28,28 @@ class SurfResponse {
     )
 
     data class Fields(
-        val Influencers: List<String>,
+        @SerializedName("Influencers")
+        val influencers: List<String>,
+        @SerializedName("Peak Surf Season Ends")
         val peakSurfSeasonEnds: String,
+        @SerializedName("Difficulty Level")
         val difficultyLevel: Int,
-        val Destination: String,
-        val Geocode: String,
+        @SerializedName("Destination")
+        val destination: String,
+        @SerializedName("Geocode")
+        val geocode: String,
+        @SerializedName("Surf Break")
         val surfBreak: List<String>,
+        @SerializedName("Magic Seaweed Link")
         val magicSeaweedLink: String,
-        val Photos: List<Photo>,
+        @SerializedName("Photos")
+        val photos: List<Photo>,
+        @SerializedName("Peak Surf Season Begins")
         val peakSurfSeasonBegins: String,
+        @SerializedName("Destination State/Country")
         val destinationStateCountry: String,
-        val Address: String
+        @SerializedName("Address")
+        val address: String
     )
 
     data class Record(

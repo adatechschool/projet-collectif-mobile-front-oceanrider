@@ -27,13 +27,13 @@ class ItemAdapter(private val context: Context, private var spots: List<SurfResp
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val record = spots[position]
         val fields = record.fields
-        holder.address.text = fields.Address
+        holder.address.text = fields.address
         holder.surfBreak.text = fields.surfBreak.joinToString { ", " } ?: ""
 
 
-        if (fields.Photos.isNotEmpty()) {
+        if (fields.photos.isNotEmpty()) {
             Glide.with(context)
-                .load(fields.Photos[0].url)
+                .load(fields.photos[0].url)
                 .into(holder.photoUrl)
         }
     }
