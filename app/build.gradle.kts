@@ -15,7 +15,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "API_KEY", "patwyiox2JC09U1wV.38d40b439459d865d84641a4e5964f7fd458cde499e4505abd213ef82cf314ee")
+//        buildConfigField("String", "API_KEY", "patwyiox2JC09U1wV.38d40b439459d865d84641a4e5964f7fd458cde499e4505abd213ef82cf314ee")
     }
 
     buildTypes {
@@ -38,6 +38,8 @@ android {
 }
 
 dependencies {
+    implementation (libs.github.glide)
+    annotationProcessor (libs.com.github.bumptech.glide.compiler)
     implementation(libs.retrofit2.converter.gson)
     implementation(libs.retrofit)
     implementation(libs.kotlinx.coroutines.core)

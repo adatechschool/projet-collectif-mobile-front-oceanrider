@@ -9,59 +9,75 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oceanrider.adapter.ItemAdapter
 import com.example.oceanrider.apiservice.ApiClient
 import com.example.oceanrider.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.withContext
 
-class MainActivity : AppCompatActivity(), CoroutineScope {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration // gère config de la toolbar
     private lateinit var binding: ActivityMainBinding // permet de lier grâce a Activity Main Binding
-    private lateinit var job: Job
-    override val coroutineContext: CoroutineContext get() = Dispatchers.Main + job
+//    private lateinit var job: Job
+//    override val coroutineContext: CoroutineContext get() = Dispatchers.Main + job
 
-    private fun executeCall() {
-        launch(Dispatchers.Main) {
-            try {
-                val response = ApiClient.apiService.getSpots()
-                if (response.isSuccessful && response.body() != null) {
-                    val content = response.body()
-                    //do something
-                } else {
-                    Toast.makeText(
-                        this@MainActivity,
-                        "Error Else Occurred: ${response.message()}",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-
-            } catch (e: Exception) {
-                Toast.makeText(
-                    this@MainActivity,
-                    "Error Exception Occurred: ${e.message}",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-        }
-    }
+//    private fun executeCall() {
+//        launch(Dispatchers.Main) {
+//            try {
+//                val response = ApiClient.apiService.getSpots()
+//                if (response.isSuccessful && response.body() != null) {
+//                    val content = response.body()
+//                    Log.d("TAG", "Response Content: $content")
+//                } else {
+//                    Toast.makeText(
+//                        this@MainActivity,
+//                        "Error Else Occurred: ${response.message()}",
+//                        Toast.LENGTH_LONG
+//                    ).show()
+//                }
+//
+//            } catch (e: Exception) {
+//                Toast.makeText(
+//                    this@MainActivity,
+//                    "Error Exception Occurred: ${e.message}",
+//                    Toast.LENGTH_LONG
+//                ).show()
+//            }
+//        }
+//    }
 
     // appelé quand activité créée
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        job = Job()
-        executeCall()
+//        job = Job()
+//        executeCall()
 
-        // crée une instance de la classe ActivityMainBinding en utilisant le layoutInflater.
+
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root) // définit le layout de l'activité en utilisant la racine de la vue liée
+        setContentView(binding.root)
 
+        val recyclerView: RecyclerView = binding.recyclerView
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        val adapter = ItemAdapter(this, emptyList())
+        recyclerView.adapter = adapter
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val surfSpotsResponse = ApiClient.apiService.getSurfSpots() // correspond a classe SurfResponse
+                val surfSpots = surfSpotsResponse.records
+                // Utilisez les données récupérées dans surfSpots pour mettre à jour l'UI
+                withContext(Dispatchers.Main) {
+                    adapter.updateData(surfSpots)
+                }
+            } catch (e: Exception) {
+                Log.e("MainActivity", "Error fetching surf spots: ${e.message}")
+            }
+        }
         setSupportActionBar(binding.toolbar) // configure la toolbar en fonction de la vue liée
 
         val navController =
@@ -86,11 +102,6 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 //            recyclerView.setHasFixedSize(true)
 //        }
     }
-
-
-
-
-
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // ouvre le menu
