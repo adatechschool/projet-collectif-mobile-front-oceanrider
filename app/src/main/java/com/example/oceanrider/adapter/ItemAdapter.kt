@@ -14,7 +14,8 @@ class ItemAdapter(private val context: Context, private var spots: List<SurfResp
     RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val difficulty: TextView = itemView.findViewById(R.id.textView_difficulty)
-        val address: TextView = itemView.findViewById(R.id.textView_address)
+        val destination: TextView = itemView.findViewById(R.id.textView_destination)
+        val destinationStateCountry : TextView = itemView.findViewById(R.id.textView_country)
 //        val photoUrl: ImageView = itemView.findViewById(R.id.imageView_photos)
     }
 
@@ -26,7 +27,8 @@ class ItemAdapter(private val context: Context, private var spots: List<SurfResp
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val record = spots[position]
         val fields = record.fields
-        holder.address.text = fields.address
+        holder.destination.text = fields.destination
+        holder.destinationStateCountry.text = fields.destinationStateCountry
         holder.difficulty.text = "Difficulté : " + fields.difficultyLevel.toString()
 
 
