@@ -3,7 +3,7 @@
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="spot_page">Spot page</string>
-    <string name="list_spots_page">List of spots</string>
+    <string name="list_spots_page">Où surfer aujourd\'hui ?</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
