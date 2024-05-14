@@ -15,70 +15,55 @@
             android:id="@+id/button_first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="612dp"
             android:backgroundTint="@color/violet"
             android:fontFamily="@font/amarante"
             android:text="@string/save"
             android:textColor="@color/orange"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.956"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:layout_editor_absoluteX="294dp"
+            tools:layout_editor_absoluteY="628dp" />
 
         <TextView
             android:id="@+id/textview_first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="92dp"
-            android:layout_marginBottom="600dp"
             android:fontFamily="@font/amarante"
             android:text="@string/name"
             android:textColor="@color/violet"
             android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            tools:layout_editor_absoluteX="118dp"
+            tools:layout_editor_absoluteY="105dp" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="132dp"
-            android:layout_marginTop="76dp"
             android:fontFamily="@font/amarante"
             android:text="@string/place"
             android:textColor="@color/violet"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="149dp"
+            tools:layout_editor_absoluteY="175dp" />
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="144dp"
-            android:layout_marginBottom="16dp"
+            android:layout_width="379dp"
+            android:layout_height="224dp"
             android:contentDescription="@string/alt"
             android:gravity="center"
             android:src="@drawable/sunrise_5084755_1280"
-            app:layout_constraintBottom_toTopOf="@+id/textView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="2dp"
+            tools:layout_editor_absoluteY="233dp" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="258dp"
             android:fontFamily="@font/amarante"
             android:text="TextView"
             android:textColor="@color/violet"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="486dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

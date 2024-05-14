@@ -5,17 +5,21 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.oceanrider.R
 import com.example.oceanrider.model.SurfResponse
 
-class ItemAdapter(private val context: Context, private var spots: List<SurfResponse.Record>) :
-    RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
+class ItemAdapter(    private val context: Context,
+                      private var spots: List<SurfResponse.Record>,
+                      private val onButtonClick: (SurfResponse.Record) -> Unit
+) : RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val difficulty: TextView = itemView.findViewById(R.id.textView_difficulty)
         val destination: TextView = itemView.findViewById(R.id.textView_destination)
         val destinationStateCountry : TextView = itemView.findViewById(R.id.textView_country)
+        val buttonSecond: Button = itemView.findViewById(R.id.button_second)
 //        val photoUrl: ImageView = itemView.findViewById(R.id.imageView_photos)
     }
 
@@ -30,6 +34,9 @@ class ItemAdapter(private val context: Context, private var spots: List<SurfResp
         holder.destination.text = fields.destination
         holder.destinationStateCountry.text = fields.destinationStateCountry
         holder.difficulty.text = "Difficulté : " + fields.difficultyLevel.toString()
+        holder.buttonSecond.setOnClickListener {
+            onButtonClick(record)
+        }
 
 
 //        if (fields.photos.isNotEmpty()) {
