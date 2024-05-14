@@ -25,6 +25,12 @@ class SpotFragment : Fragment() {
     ): View {
 
         _binding = SpotFragmentBinding.inflate(inflater, container, false)
+        val textView4 = binding.textView4
+        val spotName = arguments?.getString("name")
+        textView4.text = spotName.toString()
+
+//        val data = arguments
+//        textView4.text = data.getString("name")
         return binding.root
 
     }

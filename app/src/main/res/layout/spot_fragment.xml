@@ -15,55 +15,67 @@
             android:id="@+id/button_first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="@color/violet"
             android:fontFamily="@font/amarante"
             android:text="@string/save"
             android:textColor="@color/orange"
-            tools:layout_editor_absoluteX="294dp"
-            tools:layout_editor_absoluteY="628dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/textview_first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="65dp"
             android:fontFamily="@font/amarante"
             android:text="@string/name"
             android:textColor="@color/violet"
             android:textSize="25sp"
-            tools:layout_editor_absoluteX="118dp"
-            tools:layout_editor_absoluteY="105dp" />
+            app:layout_constraintBottom_toTopOf="@+id/imageView7"
+            app:layout_constraintEnd_toStartOf="@+id/button_first"
+            app:layout_constraintStart_toEndOf="@+id/textView" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/amarante"
             android:text="@string/place"
             android:textColor="@color/violet"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="149dp"
-            tools:layout_editor_absoluteY="175dp" />
+            app:layout_constraintStart_toStartOf="@+id/textview_first"
+            app:layout_constraintTop_toBottomOf="@+id/textview_first"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="379dp"
-            android:layout_height="224dp"
+            android:layout_width="304dp"
+            android:layout_height="238dp"
+            android:layout_marginEnd="33dp"
+            android:layout_marginBottom="153dp"
             android:contentDescription="@string/alt"
             android:gravity="center"
             android:src="@drawable/sunrise_5084755_1280"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="2dp"
-            tools:layout_editor_absoluteY="233dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="78dp"
+            android:layout_marginBottom="49dp"
             android:fontFamily="@font/amarante"
             android:text="TextView"
             android:textColor="@color/violet"
-            tools:layout_editor_absoluteX="48dp"
-            tools:layout_editor_absoluteY="486dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,15 @@
 plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
-
-        kotlin("jvm") version "1.9.23"
-        kotlin("plugin.serialization") version "1.9.23"
+    kotlin("jvm") version "1.9.23"
+    kotlin("plugin.serialization") version "1.9.23"
+}
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        val nav_version = "2.7.7"
+        classpath(libs.androidx.navigation.safe.args.gradle.plugin)
+    }
 }
