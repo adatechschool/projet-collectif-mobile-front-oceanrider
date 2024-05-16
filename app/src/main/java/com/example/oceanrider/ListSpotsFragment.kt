@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.oceanrider.adapter.ItemAdapter
 import com.example.oceanrider.apiservice.ApiClient
 import com.example.oceanrider.databinding.ListSpotsFragmentBinding
-import com.example.oceanrider.model.SurfResponse
+import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -39,11 +39,18 @@ class ListSpotsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        // envoyer le bundle avec les infos choisies
         val adapter = ItemAdapter(requireContext(), emptyList()) { record ->
-            // Naviguer vers le FirstFragment
-//            ListSpotsFragmentDirections.
-            val bundle = Bundle()
-            bundle.putString("name", record.fields.destination)
+            val bundle = Bundle().apply {
+                putString("name", record.fields.destination)
+                putString("address", record.fields.address)
+                val photoJson = Gson().toJson(record.fields.photos[0])
+                putString("photo", photoJson)
+                putString("surfbreak", record.fields.surfBreak[0])
+                putString("seasonBegin", record.fields.peakSurfSeasonBegins)
+                putString("seasonEnd", record.fields.peakSurfSeasonEnds)
+            }
+// préciser la destination
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment, bundle)
         }
         recyclerView.adapter = adapter

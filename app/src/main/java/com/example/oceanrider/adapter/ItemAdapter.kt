@@ -41,10 +41,9 @@ class ItemAdapter(
         holder.buttonSecond.setOnClickListener {
             onButtonClick(record)
 
-            val bundle = Bundle()
-            bundle.putString("name", fields.destination)
+            val bundleName = Bundle()
             val spotFragment = SpotFragment()
-            spotFragment.arguments = bundle
+            spotFragment.arguments = bundleName
         }
 
 
