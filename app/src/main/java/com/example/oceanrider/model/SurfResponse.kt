@@ -8,7 +8,7 @@ class SurfResponse {
         val id: String,
         val width: Int,
         val height: Int,
-        val url: String,
+        val url: String?,
         val filename: String,
         val size: Int,
         val type: String,
@@ -28,27 +28,27 @@ class SurfResponse {
     )
 
     data class Fields(
-        @SerializedName("Influencers")
+        //@SerializedName("influencers")
         val influencers: List<String>,
-        @SerializedName("Peak Surf Season Ends")
+        //@SerializedName("Peak Surf Season Ends")
         val peakSurfSeasonEnds: String,
-        @SerializedName("Difficulty Level")
+        //@SerializedName("Difficulty Level")
         val difficultyLevel: Int,
-        @SerializedName("Destination")
+        //@SerializedName("Destination")
         val destination: String,
-        @SerializedName("Geocode")
+        //@SerializedName("Geocode")
         val geocode: String,
-        @SerializedName("Surf Break")
+        //@SerializedName("Surf Break")
         val surfBreak: List<String>,
-        @SerializedName("Magic Seaweed Link")
+        //@SerializedName("Magic Seaweed Link")
         val magicSeaweedLink: String,
-        @SerializedName("Photos")
-        val photos: List<Photo>,
-        @SerializedName("Peak Surf Season Begins")
+        //@SerializedName("Photos")
+        val photos: Photo?,
+        //@SerializedName("Peak Surf Season Begins")
         val peakSurfSeasonBegins: String,
-        @SerializedName("Destination State/Country")
+        //@SerializedName("Destination State/Country")
         val destinationStateCountry: String,
-        @SerializedName("Address")
+        //@SerializedName("Address")
         val address: String
     )
 

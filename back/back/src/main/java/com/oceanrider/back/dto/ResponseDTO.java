@@ -20,8 +20,8 @@ public class ResponseDTO {
     }
 
     public void setRecords(List<RecordsDTO> records) {
-        this.records = records;
-    }
+       this.records = records;
+ }
 }
 
 

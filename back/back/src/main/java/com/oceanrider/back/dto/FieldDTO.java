@@ -1,8 +1,5 @@
 package com.oceanrider.back.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.List;
 
 public class FieldDTO {
@@ -26,7 +23,7 @@ public class FieldDTO {
     private String geocode;
     private List<String> surfBreak;
     private String magicSeaweedLink;
-    private List<PhotoDTO> photos;
+    private String photos;
     private String peakSurfSeasonBegins;
     private String destinationStateCountry;
     private String address;
@@ -87,11 +84,11 @@ public class FieldDTO {
         this.magicSeaweedLink = magicSeaweedLink;
     }
 
-    public List<PhotoDTO> getPhotos() {
+    public String getPhotos() {
         return photos;
     }
 
-    public void setPhotos(List<PhotoDTO> photos) {
+    public void setPhotos(String photos) {
         this.photos = photos;
     }
 

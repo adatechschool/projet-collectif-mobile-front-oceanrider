@@ -4,7 +4,7 @@ import com.example.oceanrider.model.SurfResponse
 import retrofit2.http.GET
 
 interface ApiService {
-    @GET("appEksYm9WhIjEtus/Surf%20Destinations")
+    @GET("api/spots")
     suspend fun getSurfSpots(): SurfResponse.SurfSpotsResponse
 
 }

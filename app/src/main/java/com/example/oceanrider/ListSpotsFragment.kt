@@ -44,7 +44,7 @@ class ListSpotsFragment : Fragment() {
             val bundle = Bundle().apply {
                 putString("name", record.fields.destination)
                 putString("address", record.fields.address)
-                val photoJson = Gson().toJson(record.fields.photos[0])
+                val photoJson = Gson().toJson(record.fields.photos)
                 putString("photo", photoJson)
                 putString("surfbreak", record.fields.surfBreak[0])
                 putString("seasonBegin", record.fields.peakSurfSeasonBegins)

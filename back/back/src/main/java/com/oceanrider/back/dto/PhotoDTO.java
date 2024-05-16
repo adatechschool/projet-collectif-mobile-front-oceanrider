@@ -1,12 +1,25 @@
 package com.oceanrider.back.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 
 public class PhotoDTO {
-    public PhotoDTO(String id, int width, int height, String testUrl, String filename, long size, String type) {
+
+
+    private String id;
+    private int width;
+    private int height;
+    private String url;
+    private String filename;
+    private long size;
+    private String type;
+
+    public PhotoDTO() {
         this.id = id;
         this.width = width;
         this.height = height;
-        this.testUrl = testUrl;
+        this.url = url;
         this.filename = filename;
         this.size = size;
         this.type = type;
@@ -36,12 +49,12 @@ public class PhotoDTO {
         this.height = height;
     }
 
-    public String getTestUrl() {
-        return testUrl;
+    public String getUrl() {
+        return url;
     }
 
-    public void setTestUrl(String testUrl) {
-        this.testUrl = testUrl;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getFilename() {
@@ -68,11 +81,4 @@ public class PhotoDTO {
         this.type = type;
     }
 
-    private String id;
-    private int width;
-    private int height;
-    private String testUrl;
-    private String filename;
-    private long size;
-    private String type;
 }
