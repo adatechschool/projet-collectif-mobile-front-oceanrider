@@ -3,18 +3,6 @@ package com.oceanrider.back.dto;
 import java.util.List;
 
 public class FieldDTO {
-    public FieldDTO() {
-        this.peakSurfSeasonEnds = peakSurfSeasonEnds;
-        this.difficultyLevel = difficultyLevel;
-        this.destination = destination;
-        this.geocode = geocode;
-        this.surfBreak = surfBreak;
-        this.magicSeaweedLink = magicSeaweedLink;
-        this.photos = photos;
-        this.peakSurfSeasonBegins = peakSurfSeasonBegins;
-        this.destinationStateCountry = destinationStateCountry;
-        this.address = address;
-    }
 
     private List<String> influencers;
     private String peakSurfSeasonEnds;
@@ -23,7 +11,7 @@ public class FieldDTO {
     private String geocode;
     private List<String> surfBreak;
     private String magicSeaweedLink;
-    private String photos;
+    private List<PhotoDTO> photos;
     private String peakSurfSeasonBegins;
     private String destinationStateCountry;
     private String address;
@@ -84,11 +72,11 @@ public class FieldDTO {
         this.magicSeaweedLink = magicSeaweedLink;
     }
 
-    public String getPhotos() {
+    public List<PhotoDTO> getPhotos() {
         return photos;
     }
 
-    public void setPhotos(String photos) {
+    public void setPhotos(List<PhotoDTO> photos) {
         this.photos = photos;
     }
 

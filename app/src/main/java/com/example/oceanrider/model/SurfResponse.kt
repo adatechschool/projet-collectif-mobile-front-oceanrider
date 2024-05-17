@@ -43,7 +43,7 @@ class SurfResponse {
         //@SerializedName("Magic Seaweed Link")
         val magicSeaweedLink: String,
         //@SerializedName("Photos")
-        val photos: Photo?,
+        val photos: List<Photo>,
         //@SerializedName("Peak Surf Season Begins")
         val peakSurfSeasonBegins: String,
         //@SerializedName("Destination State/Country")
